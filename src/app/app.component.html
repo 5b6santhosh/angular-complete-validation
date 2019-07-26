@@ -1,10 +1,10 @@
 <div class="container ">
-<div class="panel panel-default">
-<div class="pannel-body"><br/>
- <div class="col-md-4">
+<div class="panel panel-default row">
+<div class="pannel-body "><br/>
+ <div class="col-md-4 col-lg-4">
 <form [formGroup]="form" novalidate>
  
- <div class="form-group">
+ <div class="form-group"  [ngClass]="{'has-danger': form.controls.FirstName.hasError('required') && (!form.controls.FirstName.valid),'has-success': form.controls.FirstName.valid && (form.controls.FirstName.dirty || form.controls.FirstName.touched)}">
   <input type="text" placeholder="FirstName"  class="form-control" name="FirstName" [(ngModel)]="v.FirstName" formControlName="FirstName" />
  <div class="text-danger" *ngIf="VulFormValid">
                         <div *ngIf="form.controls.FirstName.hasError('required') && !form.controls.FirstName.valid">
