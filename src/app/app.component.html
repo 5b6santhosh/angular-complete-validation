@@ -1,0 +1,111 @@
+<div class="container ">
+<div class="panel panel-default">
+<div class="pannel-body"><br/>
+ <div class="col-md-4">
+<form [formGroup]="form" novalidate>
+ 
+ <div class="form-group">
+  <input type="text" placeholder="FirstName"  class="form-control" name="FirstName" [(ngModel)]="v.FirstName" formControlName="FirstName" />
+ <div class="text-danger" *ngIf="VulFormValid">
+                        <div *ngIf="form.controls.FirstName.hasError('required') && !form.controls.FirstName.valid">
+                          <i>FirstName  is required.</i>
+                        </div>
+ <div *ngIf="form.controls.FirstName.hasError('minlength')">
+    Name must be at least 3 characters long.
+  </div>
+  <div *ngIf="form.controls.FirstName.hasError('maxlength')">
+    Maximum  20 Characters.
+  </div>
+  <div *ngIf="form.controls.FirstName.hasError('pattern')">
+   Only characters Allowed.
+  </div>
+                      </div>
+ </div> 
+
+ <div class="form-group">
+  <input type="text" class="form-control" name="LastName" [(ngModel)]="v.LastName" placeholder="LastName" formControlName="LastName"/>
+ <div class="text-danger" *ngIf="VulFormValid">
+                        <div *ngIf="form.controls.LastName.hasError('required') && !form.controls.LastName.valid">
+                          <i>LastName  is required.</i>
+                        </div>
+   <div *ngIf="form.controls.LastName.hasError('minlength')">
+    Name must be at least 3 characters long.
+  </div>
+  <div *ngIf="form.controls.LastName.hasError('maxlength')">
+   Maximum  20 Characters .
+  </div>
+  <div *ngIf="form.controls.LastName.hasError('pattern')">
+    Accepted  only characters .
+  </div>
+                      </div>
+ </div>
+
+ <div class="form-group">
+  <input type="email" class="form-control" name="Email" [(ngModel)]="v.Email" placeholder="Email" formControlName="Email"/>
+ <div class="text-danger" *ngIf="VulFormValid">
+                        <div *ngIf="form.controls.Email.hasError('required') && !form.controls.Email.valid">
+                          <i>Email  is required.</i>
+                        </div>
+                        <div *ngIf="form.controls.Email.hasError('pattern')">
+    Enter Valid EMail .
+  </div>
+                      </div>
+ </div>
+
+ <div class="input-group">
+   <div class="input-group-addon">
+     	<select  >
+              <option>+91</option>
+            </select>	
+   </div>
+  					
+  <input  type="text" class="form-control" name="MobileNumber" [(ngModel)]="v.MobileNumber" formControlName="MobileNumber" placeholder="Mobile Number"/>
+ </div>
+  <div class="text-danger" *ngIf="VulFormValid">
+<div *ngIf="form.controls.MobileNumber.hasError('required') && !form.controls.MobileNumber.valid">
+                          <i>MobileNumber  is required.</i>
+                        </div>
+                       
+    <div *ngIf="form.controls.MobileNumber.hasError('minlength')">
+    Number must be at least 10 Digits.
+  </div>
+  <div *ngIf="form.controls.MobileNumber.hasError('maxlength')">
+    Maximum  10 digits .
+  </div>
+  <div *ngIf="form.controls.MobileNumber.hasError('pattern')">
+    Only Numbers Allowed.
+  </div>
+                      </div>
+ <br>
+ <div class="form-group">
+  <input type="text" class="form-control" name="LandLineNumber" placeholder="LandLineNumber" [(ngModel)]="v.LandLineNumber" formControlName="LandLineNumber"/>
+ <div class="text-danger" *ngIf="VulFormValid">
+                        <div *ngIf="form.controls.LandLineNumber.hasError('required') && !form.controls.LandLineNumber.valid">
+                          <i>LandLineNumber  is required.</i>
+                        </div>
+
+                        <div *ngIf="form.controls.LandLineNumber.hasError('minlength')">
+    Number must be at least 12 Digits.
+  </div>
+  <div *ngIf="form.controls.LandLineNumber.hasError('maxlength')">
+   Maximum  12 digits.
+  </div>
+  <div *ngIf="form.controls.LandLineNumber.hasError('pattern')">
+    Accepted  only Numbers .
+  </div>
+                      </div>
+ </div>
+<p>{{v |json}}</p>
+<div class="form-group text-center">
+<button type="submit" class="btn btn-defalut" (click)="sub(v)">submit</button>
+</div>
+</form>
+ </div>
+ </div>
+
+</div>
+
+
+
+</div>
+
